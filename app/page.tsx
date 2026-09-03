@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { ArrowUpRight, GitBranch, Link2, Mail, Menu, X, MapPin, Code2, Smartphone, Monitor, Database, PenTool, ExternalLink, CheckCircle2 } from 'lucide-react'
+import { ArrowUpRight, GitBranch, Link2, Mail, Menu, X, MapPin, Code2, Smartphone, Monitor, Database, PenTool, ExternalLink, CheckCircle2, Wrench } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { BlurReveal } from '@/components/ui/blur-reveal'
@@ -13,11 +13,12 @@ import { ThreeDCarousel, ThreeDCarouselItem } from '@/components/ThreeDCarousel'
 import { cn } from '@/lib/utils'
 
 const skills = [
-  { label: 'Frontend', icon: Code2, items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Tailwind CSS', 'Next.js'] },
-  { label: 'Database', icon: Database, items: ['PostgreSQL', 'Supabase', 'Firebase'] },
+  { label: 'Frontend', icon: Code2, items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Tailwind CSS', 'Next.js', 'ESLint', 'Prettier'] },
+  { label: 'Database', icon: Database, items: ['Node.js', 'PostgreSQL', 'Supabase', 'Firebase', 'SQLite', 'Express'] },
   { label: 'Mobile', icon: Smartphone, items: ['Flutter', 'Dart', 'React Native', 'Expo'] },
   { label: 'Desktop', icon: Monitor, items: ['Electron'] },
-  { label: 'Tools', icon: PenTool, items: ['Git', 'GitHub', 'VS Code', 'Figma', 'Anti-Gravity', 'Cursor'] },
+  { label: 'AI Tools', icon: Wrench, items: ['Claude Code', 'Codex', 'Cursor', 'V0'] },
+  { label: 'Developer Tools', icon: PenTool, items: ['Git', 'GitHub', 'VS Code', 'Figma', 'Anti-Gravity'] },
 ]
 
 const projectCategories: Record<'Web' | 'Mobile' | 'Desktop', ThreeDCarouselItem[]> = {
@@ -79,55 +80,29 @@ const projectCategories: Record<'Web' | 'Mobile' | 'Desktop', ThreeDCarouselItem
     {
       id: 5,
       number: "02",
-      title: "Pet Village Community",
-      brand: "Flutter Application",
-      description: "A friendly, connected mobile community application that makes sharing pet moments welcoming and easy.",
-      role: "Mobile application development",
-      outcome: "A friendly community concept that makes sharing pet moments feel easy and welcoming.",
-      caseStudy: "The product explores how a warm visual language and lightweight social interactions can support a niche community. I built the mobile foundation with accessibility, familiar navigation, and simple content creation in mind.",
-      tags: ["Flutter", "Dart", "Firebase", "Mobile UI"],
+      title: "Pet Village",
+      brand: "Mobile Application",
+      description: "A mobile app that helps pet owners find product deals, special offers, and pet care content.",
+      role: "Mobile application development and UI design",
+      outcome: "Gave Pet Village customers one simple place to browse deals, sign in, and connect with the brand.",
+      caseStudy: "Built with Flutter for Android and iOS. The app shows live product deals from WooCommerce, promotions and videos, customer accounts, notifications, and a rewards section for future use.",
+      tags: ["Flutter", "Dart", "Firebase", "WooCommerce", "REST API"],
       imageUrl: "/projects/pet-village.png",
       link: "#contact",
-    },
-    {
-      id: 6,
-      number: "03",
-      title: "Waste Disposal Companion",
-      brand: "IoT Mobile App",
-      description: "Companion mobile application monitoring automated hardware waste segregation telemetry in real-time.",
-      role: "Embedded systems + mobile UI integration",
-      outcome: "A practical prototype connecting detection, physical processing, and automated control.",
-      caseStudy: "This project moved beyond the screen. I connected YOLOv8-based classification with Raspberry Pi and Arduino hardware to explore a complete loop: identify material, route it, then process it with less manual intervention.",
-      tags: ["Flutter", "IoT", "YOLOv8", "Computer Vision"],
-      imageUrl: "/projects/pet-village.png",
-      link: "#contact",
-    },
+    }
   ],
   Desktop: [
     {
       id: 7,
       number: "01",
-      title: "DevStation Dashboard",
-      brand: "Electron Desktop",
-      description: "A cross-platform Electron desktop dashboard for monitoring developer environments, microservices, and system health.",
-      role: "Desktop architecture + UI design",
-      outcome: "Unified local microservice monitoring into a single low-overhead desktop dashboard.",
-      caseStudy: "Built to streamline developer workflows. Electron coordinates native system processes while React renders real-time CPU, memory, log streams, and service statuses.",
-      tags: ["Electron", "React", "Node.js", "Desktop"],
-      imageUrl: "/projects/hertz.png",
-      link: "#contact",
-    },
-    {
-      id: 8,
-      number: "02",
-      title: "Material Classifier GUI",
-      brand: "Desktop Vision Suite",
-      description: "Native desktop GUI application running computer vision models locally with hardware control & live telemetry.",
-      role: "Full-stack GUI + AI integration",
-      outcome: "Delivered real-time vision model feeds and hardware telemetry to desktop operators.",
-      caseStudy: "Integrated PyTorch vision models with Electron IPC bridges, giving operators instant visual feedback and hardware overrides during automated sorting cycles.",
-      tags: ["Electron", "Python", "Computer Vision", "Hardware"],
-      imageUrl: "/projects/presyofinder.png",
+      title: "Inventory System",
+      brand: "Electron Desktop Application",
+      description: "A desktop app for a shop to manage products, stock, sales, and staff.",
+      role: "Full-stack development+ UI design",
+      outcome: "Made it easier to track stock, sales, profit, and low-stock items in one place.",
+      caseStudy: "Built for a small shop. Staff can add products, record stock deliveries and sales, print receipts, scan barcodes, manage returns, and view reports. The app works offline and saves data in a local SQLite database.",
+      tags: ["Electron", "React", "Node.js", "Express", "SQLite"],
+      imageUrl: "/projects/Inventory System/Dashboard.png",
       link: "#contact",
     },
   ],
@@ -225,9 +200,9 @@ export default function Page() {
 
       <section className="section experience-section" id="experience"><motion.div {...fadeUp}><SectionLabel>04 / Experience</SectionLabel></motion.div><div className="experience-row"><div><h2>People, products<br /><em>and foundations.</em></h2><p className="experience-lede">The work and education that shaped how I approach building useful software.</p></div><div className="timeline-list"><div className="timeline-item"><span className="timeline-year">2024 — 2025 · OJT</span><h3>Software Development Intern<br />PV Venture Corporation</h3><p>Supported product development across interface implementation, debugging, and practical software delivery in a collaborative team environment.</p></div><div className="timeline-item"><span className="timeline-year">EDUCATION</span><h3>Bachelor of Science in<br />Computer Engineering</h3><p>Building a foundation in software, hardware, systems, and problem solving.</p></div></div></div></section>
 
-      <section className="section contact-section" id="contact"><motion.div {...fadeUp}><SectionLabel>05 / Contact</SectionLabel></motion.div><div className="contact-grid"><motion.div {...fadeUp}><h2>Let&apos;s build<br /><em>something together.</em></h2><p className="contact-lede">Have a project, an opportunity, or just want to say hi? My inbox is always open.</p><div className="contact-links"><a href="mailto:micoh.ojenar@example.com"><Mail size={18} /> micoh.ojenar@example.com <ArrowUpRight size={15} /></a><a href="https://github.com" target="_blank" rel="noreferrer"><GitBranch size={18} /> GitHub <ArrowUpRight size={15} /></a><a href="https://linkedin.com" target="_blank" rel="noreferrer"><Link2 size={18} /> LinkedIn <ArrowUpRight size={15} /></a></div></motion.div><motion.form className="contact-form" {...fadeUp} transition={{ delay: .1, duration: .55 }} onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>{submitted ? <div className="form-success"><Alert><CheckCircle2 /><div><AlertTitle>Message noted.</AlertTitle><AlertDescription>This demo form isn&apos;t connected to email yet, but thanks for reaching out.</AlertDescription></div></Alert><button type="button" className="button button-dark" onClick={() => setSubmitted(false)}>Send another</button></div> : <><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about your project..." /></label><button className="button button-dark" type="submit">Send message <ArrowUpRight size={16} /></button><p className="form-note">This form is a demo. Prefer email? <a href="mailto:micoh.ojenar@example.com">Open your mail app instead.</a></p></>}</motion.form></div></section>
+      <section className="section contact-section" id="contact"><motion.div {...fadeUp}><SectionLabel>05 / Contact</SectionLabel></motion.div><div className="contact-grid"><motion.div {...fadeUp}><h2>Let&apos;s build<br /><em>something together.</em></h2><p className="contact-lede">Have a project, an opportunity, or just want to say hi? My inbox is always open.</p><div className="contact-links"><a href="mailto:micohangelo14@gmail.com"><Mail size={18} /> micohangelo14@gmail.com <ArrowUpRight size={15} /></a><a href="https://github.com" target="_blank" rel="noreferrer"><GitBranch size={18} /> GitHub <ArrowUpRight size={15} /></a><a href="https://linkedin.com" target="_blank" rel="noreferrer"><Link2 size={18} /> LinkedIn <ArrowUpRight size={15} /></a></div></motion.div><motion.form className="contact-form" {...fadeUp} transition={{ delay: .1, duration: .55 }} onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>{submitted ? <div className="form-success"><Alert><CheckCircle2 /><div><AlertTitle>Message noted.</AlertTitle><AlertDescription>This demo form isn&apos;t connected to email yet, but thanks for reaching out.</AlertDescription></div></Alert><button type="button" className="button button-dark" onClick={() => setSubmitted(false)}>Send another</button></div> : <><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about your project..." /></label><button className="button button-dark" type="submit">Send message <ArrowUpRight size={16} /></button><p className="form-note">This form is a demo. Prefer email? <a href="mailto:micohangelo14@gmail.com">Open your mail app instead.</a></p></>}</motion.form></div></section>
 
-      <footer className="site-footer"><div><strong>MA.</strong><span>Micoh Angelo Ojeñar<br />Full-Stack Developer</span></div><p>© 2026 Micoh Angelo Ojeñar</p><a href="#top" className="back-top">Back to top ↑</a></footer>
+      <footer className="site-footer"><div><strong>MO.</strong><span>Micoh Angelo Ojeñar<br />Full-Stack Developer</span></div><p>© 2026 Micoh Angelo Ojeñar</p><a href="#top" className="back-top">Back to top ↑</a></footer>
     </main>
   )
 }
