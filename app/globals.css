@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
 
 @theme inline {
     --color-background: var(--background);
@@ -60,7 +59,7 @@ a {
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 50;
     background: color-mix(in srgb, var(--background) 92%, transparent);
     backdrop-filter: blur(12px);
 }
@@ -1105,9 +1104,9 @@ body.dark {
 .expandable-overlay {
     position: fixed;
     inset: 0;
-    z-index: 30;
+    z-index: 60;
     display: flex;
-    align-items: center;
+    align-items: center;        
     justify-content: center;
     padding: 20px;
     background: color-mix(in srgb, var(--foreground) 55%, transparent);
@@ -1115,16 +1114,16 @@ body.dark {
 
 .expandable-panel {
     position: relative;
-    width: min(680px, 100%);
-    max-height: 90vh;
+    width: min(1100px, 95vw);
+    max-height: 92vh;
     overflow: auto;
     padding: 28px;
     background: var(--paper);
     color: var(--foreground);
-    box-shadow: 12px 12px 0 var(--primary);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
-.expandable-panel>img {
+.expandable-panel > img:not(.lightbox-image) {
     width: 100%;
     max-height: 240px;
     object-fit: cover;
@@ -1179,4 +1178,66 @@ body.dark {
         opacity: 1;
         transform: scale(1.4);
     }
+}
+
+.cert-category { margin-top: 45px; }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
+.cert-card { background: var(--paper); border: 1px solid var(--border); padding: 20px; transition: transform .2s, box-shadow .2s; }
+.cert-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 var(--border); }
+.cert-card h4 { margin: 0 0 6px; font-size: 14px; line-height: 1.3; }
+.cert-card span { font-family: var(--font-mono); font-size: 10px; color: var(--muted-foreground); text-transform: uppercase; }
+.cert-verify { display: flex; align-items: center; gap: 5px; margin: 14px 0 0; font-size: 11px; color: var(--muted-foreground); }
+.cert-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  margin-bottom: 10px;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.github-chart-wrapper {
+  margin-top: 40px;
+  overflow-x: auto;
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+}
+
+.github-chart {
+  width: 100%;
+  min-width: 720px;
+  display: block;
+}
+
+
+.lightbox-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.lightbox-image.lightbox-portrait {
+    width: auto;
+    max-width: 100%;
+    height: 85vh;
+    max-height: 90vh;
+}
+
+.expandable-panel-portrait {
+    width: fit-content;
+    padding: 16px;
 }
